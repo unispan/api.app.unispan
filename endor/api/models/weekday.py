@@ -8,20 +8,20 @@ from sqlalchemy_utils import UUIDType
 from sqlalchemy_utils.decorators import generates
 
 
-class Role(Base):
-    __tablename__ = "roles"
-    id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
+class Weekday(Base):
+    __tablename__ = "weekdays"
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String, nullable=False)
     enabled = Column(Boolean, default=True)
 
-    # Relation for user
-    user = relationship(
-                    "User",
-                    order_by="users.id",
-                    back_populates="role")
+    # Relation for Schedule Window
+    schedule_window = relationship(
+                            "ScheduleWindow",
+                            order_by="schedule_windows.id",
+                            back_populates="weekday")
 
     def __repr__(self):
-        return '<Role {}|{}>'.format(self.id, self.name)
+        return '<weekday {}|{}>'.format(self.id, self.name)
 
     def __json__(self):
         return dict(

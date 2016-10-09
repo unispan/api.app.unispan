@@ -87,3 +87,8 @@ def flush():
     Session.flush()
 
 from role import Role
+from user import User
+from position import Position
+from employee import Employee
+from country import Country
+from ubiego import Ubigeo

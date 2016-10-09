@@ -8,20 +8,20 @@ from sqlalchemy_utils import UUIDType
 from sqlalchemy_utils.decorators import generates
 
 
-class Role(Base):
-    __tablename__ = "roles"
+class Position(Base):
+    __tablename__ = "positions"
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
-    name = Column(String, nullable=False)
+    name = Column(String, unique=True, nullable=False)
     enabled = Column(Boolean, default=True)
 
-    # Relation for user
-    user = relationship(
-                    "User",
-                    order_by="users.id",
-                    back_populates="role")
+    # Relation for employees
+    employees = relationship(
+                    "Employee",
+                    order_by="employees.id",
+                    back_populates="position")
 
     def __repr__(self):
-        return '<Role {}|{}>'.format(self.id, self.name)
+        return '<Position {}|{}>'.format(self.id, self.name)
 
     def __json__(self):
         return dict(

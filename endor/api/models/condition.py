@@ -8,20 +8,26 @@ from sqlalchemy_utils import UUIDType
 from sqlalchemy_utils.decorators import generates
 
 
-class Role(Base):
-    __tablename__ = "roles"
+class Condition(Base):
+    __tablename__ = "conditions"
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
     name = Column(String, nullable=False)
     enabled = Column(Boolean, default=True)
 
-    # Relation for user
-    user = relationship(
-                    "User",
-                    order_by="users.id",
-                    back_populates="role")
+    # Relation for Fee
+    fee = relationship(
+                        "Fees",
+                        order_by="fees.id",
+                        back_populates="condition")
+
+    # Relation for Devolution
+    devolution = relationship(
+                        "Devolution",
+                        order_by="devolutions.id",
+                        back_populates="condition")
 
     def __repr__(self):
-        return '<Role {}|{}>'.format(self.id, self.name)
+        return '<Condition {}|{}>'.format(self.id, self.name)
 
     def __json__(self):
         return dict(
