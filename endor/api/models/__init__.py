@@ -91,8 +91,9 @@ from condition import Condition
 from country import Country
 from customer_project import CustomerProject
 from customer import Customer
-from devolution import Devolutions
+from devolution import Devolution
 from employee import Employee
+from equipment import Equipment
 from fee import Fee
 from group import Group
 from position import Position
@@ -100,6 +101,6 @@ from postal_address import PostalAddress
 from role import Role
 from schedule_window import ScheduleWindow
 from schedule import Schedule
-from ubiego import Ubigeo
+from ubigeo import Ubigeo
 from user import User
 from weekday import Weekday
