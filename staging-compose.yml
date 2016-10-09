@@ -1,0 +1,19 @@
+api:
+  extends:
+    file: common-services.yml
+    service: common_api
+  environment:
+    VIRTUAL_HOST: 'staging-api.unispan.com.pe'
+  volumes:
+    - ./api_app_unispan/:/usr/src/app/api_app_unispan
+  links:
+    - db
+  ports:
+    - "8000:8000"
+
+db:
+  extends:
+    file: common-services.yml
+    service: common_db
+  ports:
+    - "5432:5432"

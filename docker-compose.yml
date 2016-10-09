@@ -1,0 +1,23 @@
+api:
+  extends:
+    file: common-services.yml
+    service: common_service
+  container_name: api
+  command: --config endor.yaml runserver --host 0.0.0.0
+  #working_dir: /usr/src/app
+  environment:
+    VIRTUAL_HOST: 'api.unispan.endor.io'
+  #volumes:
+    # - ./api_app_unispan/:/usr/src/app/api_app_unispan
+  links:
+    - db
+  ports:
+    - "8000:8000"
+
+db:
+  build: ./db
+  container_name: db
+  environment:
+    POSTGRES_DB: unispan
+  ports:
+    - "5432:5432"

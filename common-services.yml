@@ -1,0 +1,6 @@
+common_service:
+  build: .
+  environment:
+    LANG: "es_ES.UTF-8"
+    LANGUAGE: "es_ES.UTF-8"
+    DB_SECTION: "sqlalchemy"
