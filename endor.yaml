@@ -1,0 +1,10 @@
+# Middleware Specific Configurations
+middleware:
+  cors:
+     allowed_origins: '*'
+     allowed_headers: 'Content-Type'
+
+# Backing Services  Specific Configurations
+backingServices:
+  sqlalchemy:
+    url: 'postgresql://postgres@db:5432/unispan'

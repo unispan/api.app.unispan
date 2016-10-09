@@ -1,0 +1,11 @@
+Click
+PyYAML
+waitress
+falcon
+colander
+colanderalchemy
+psycopg2
+sqlalchemy==1.1.0
+SQLAlchemy-Utils==0.29.2
+dicttoxml==1.7.4
+python-slugify==0.1.0
