@@ -27,7 +27,7 @@ class Assigment(Base):
                             ForeignKey('customer_projects.id'))
 
     customer_project = relationship(
-                            "CustomerPproject",
+                            "CustomerProject",
                             back_populates="assigment")
 
     # Relation for Devolution
