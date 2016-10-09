@@ -86,9 +86,20 @@ def clear():
 def flush():
     Session.flush()
 
-from role import Role
-from user import User
-from position import Position
-from employee import Employee
+from assigment import Assigment
+from condition import Condition
 from country import Country
+from customer_project import CustomerProject
+from customer import Customer
+from devolution import Devolutions
+from employee import Employee
+from fee import Fee
+from group import Group
+from position import Position
+from postal_address import PostalAddress
+from role import Role
+from schedule_window import ScheduleWindow
+from schedule import Schedule
 from ubiego import Ubigeo
+from user import User
+from weekday import Weekday
