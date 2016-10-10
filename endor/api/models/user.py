@@ -22,7 +22,7 @@ class User(Base):
 
     # Employee for User
     employee_id = Column(UUIDType(binary=False), ForeignKey('employees.id'))
-    employee = relationship("Role", back_populates="user")
+    employee = relationship("Employee", back_populates="user")
 
     def __repr__(self):
         return '<User {}|{}>'.format(self.id, self.username)

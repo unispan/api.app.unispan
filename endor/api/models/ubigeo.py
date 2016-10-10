@@ -10,7 +10,7 @@ from sqlalchemy_utils.decorators import generates
 
 class Ubigeo(Base):
     __tablename__ = "ubigeos"
-    id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
+    id = Column(String, primary_key=True, nullable=False)
     department = Column(String, nullable=False)
     province = Column(String, nullable=False)
     district = Column(String, nullable=False)
@@ -18,8 +18,8 @@ class Ubigeo(Base):
 
     # Relation for Postal Address
     postal_address = relationship(
-                                  "Ubigeo",
-                                  order_by="ubigeos.id",
+                                  "PostalAddress",
+                                  order_by="postal_addresses.id",
                                   back_populates="ubigeo")
 
     # Relation for Customer Projects

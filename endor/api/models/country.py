@@ -9,7 +9,7 @@ from sqlalchemy_utils.decorators import generates
 
 
 class Country(Base):
-    __tablename__ = "Countries"
+    __tablename__ = "countries"
     id = Column(String, primary_key=True, nullable=False)
     name = Column(String, nullable=False)
     enabled = Column(Boolean, default=True)
@@ -17,7 +17,7 @@ class Country(Base):
     # Relation for Postal Address
     postal_address = relationship(
                                   "PostalAddress",
-                                  order_by="postal_address.id",
+                                  order_by="postal_addresses.id",
                                   back_populates="country")
 
     # Relation for Customer Project

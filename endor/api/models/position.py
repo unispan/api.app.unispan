@@ -15,7 +15,7 @@ class Position(Base):
     enabled = Column(Boolean, default=True)
 
     # Relation for employees
-    employees = relationship(
+    employee = relationship(
                     "Employee",
                     order_by="employees.id",
                     back_populates="position")

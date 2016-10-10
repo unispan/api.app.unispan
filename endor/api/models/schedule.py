@@ -18,7 +18,7 @@ class Schedule(Base):
                         nullable=False)
 
     # Customer Project for Schedule
-    customer_project_id = Column(UUIDType(binary=False), ForeignKey('cutomer_projects.id'))
+    customer_project_id = Column(UUIDType(binary=False), ForeignKey('customer_projects.id'))
     customer_project = relationship("CustomerProject", back_populates="schedule")
 
     # Schedule Windows for Schedule

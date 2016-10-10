@@ -13,7 +13,7 @@ class ScheduleWindow(Base):
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
 
     # Weekday for Schedule Window
-    weekday_id = Column(UUIDType(binary=False), ForeignKey('weekdays.id'))
+    weekday_id = Column(Integer, ForeignKey('weekdays.id'))
     weekday = relationship("Weekday", back_populates="schedule_window")
 
     start_time = Column(String, nullable=False)

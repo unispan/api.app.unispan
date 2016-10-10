@@ -9,21 +9,21 @@ from sqlalchemy_utils.decorators import generates
 
 
 class PostalAddress(Base):
-    __tablename__ = "postal_address"
+    __tablename__ = "postal_addresses"
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
     house_number = Column(String, nullable=False)
     street_name = Column(String, nullable=False)
 
     # Country for PostalAddress
-    country_id = Column(String, ForeignKey('country.id'))
+    country_id = Column(String, ForeignKey('countries.id'))
     country = relationship("Country", back_populates="postal_address")
 
     # Ubigeo for PostalAddress
-    ubigeo_id = Column(String, ForeignKey('ubigeo.id'))
+    ubigeo_id = Column(String, ForeignKey('ubigeos.id'))
     ubigeo = relationship("Ubigeo", back_populates="postal_address")
 
     # Customer for PostalAddress
-    customer_id = Column(UUIDType(binary=False), ForeignKey('customer.id'))
+    customer_id = Column(UUIDType(binary=False), ForeignKey('customers.id'))
     customer = relationship("Customer", back_populates="postal_address")
 
 

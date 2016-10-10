@@ -16,7 +16,7 @@ class Customer(Base):
     # Relation for postal_address
     postal_address = relationship(
                                   "PostalAddress",
-                                  order_by="postal_address.id",
+                                  order_by="postal_addresses.id",
                                   back_populates="customer")
 
     # Relation for Cutomer Projects

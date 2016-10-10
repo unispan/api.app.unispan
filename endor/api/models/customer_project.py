@@ -13,11 +13,11 @@ class CustomerProject(Base):
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
 
     # Customer for Customer Projects
-    customer_id = Column(UUIDType(binary=False), ForeignKey('customer.id'))
+    customer_id = Column(UUIDType(binary=False), ForeignKey('customers.id'))
     customer = relationship("Customer", back_populates="cutomer_project")
 
     # Employee for Customer Projects
-    employee_id = Column(UUIDType(binary=False), ForeignKey('employee.id'))
+    employee_id = Column(UUIDType(binary=False), ForeignKey('employees.id'))
     employee = relationship("Employee", back_populates="cutomer_project")
 
     name = Column(String, unique=True, nullable=False)
@@ -28,11 +28,11 @@ class CustomerProject(Base):
     end_date = Column(DateTime, nullable=False)
 
     # Country for Customer Projects
-    country_id = Column(UUIDType(binary=False), ForeignKey('countries.id'))
+    country_id = Column(String, ForeignKey('countries.id'))
     country = relationship("Country", back_populates="cutomer_project")
 
     # Ubigeo for Customer Projects
-    ubigeo_id = Column(UUIDType(binary=False), ForeignKey('ubigeo.id'))
+    ubigeo_id = Column(String, ForeignKey('ubigeos.id'))
     ubigeo = relationship("Ubigeo", back_populates="cutomer_project")
 
     house_number = Column(String, nullable=False)

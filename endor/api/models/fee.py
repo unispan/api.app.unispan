@@ -13,7 +13,7 @@ class Fee(Base):
     id = Column(UUIDType(binary=False), primary_key=True, nullable=False)
 
     # Condition for Fee
-    condition_id = Column(UUIDType(binary=False), ForeignKey('condition.id'))
+    condition_id = Column(UUIDType(binary=False), ForeignKey('conditions.id'))
     condition = relationship("Condition", back_populates="fee")
 
     # Group for Fee
@@ -22,7 +22,6 @@ class Fee(Base):
 
     fee = Column(Float(precision=2), nullable=False)
     enabled = Column(Boolean, default=True)
-
 
     def __repr__(self):
         return '<Fee {}>'.format(self.id)
